@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://fksaxmrasiud"]
+
+[sub_resource type="Theme" id="Theme_eyi13"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4geyq"]
+font_size = 30
+
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.434047, 0.645756, 0.963294, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eyi13")
+alignment = 1
+
+[node name="Settings label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_4geyq")
+horizontal_alignment = 1
+
+[node name="Audio Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Audio"
+
+[node name="Graphics Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Graphics"
