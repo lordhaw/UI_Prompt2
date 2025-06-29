@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdfb1x6wakvfp"]
+
+[ext_resource type="Script" uid="uid://cun1i0e203pjh" path="res://Scripts/graphics_back_button.gd" id="1_67mob"]
+[ext_resource type="Script" uid="uid://douabmvmn0gdt" path="res://Scripts/rgbsliders.gd" id="1_i2ig4"]
+[ext_resource type="Script" uid="uid://dwc6hqh60bl86" path="res://Scripts/chg_colour.gd" id="1_kcrss"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_abwfx"]
+font_size = 30
+
+[node name="Graphics BG ColorRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.435294, 0.647059, 0.964706, 1)
+script = ExtResource("1_kcrss")
+
+[node name="Main VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Graphics Label" type="Label" parent="Main VBoxContainer"]
+layout_mode = 2
+text = "Graphics Settings"
+label_settings = SubResource("LabelSettings_abwfx")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Main VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Controls VBoxContainer" type="VBoxContainer" parent="Main VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+script = ExtResource("1_i2ig4")
+
+[node name="RSliderHBoxContainer" type="HBoxContainer" parent="Main VBoxContainer/Controls VBoxContainer"]
+layout_mode = 2
+
+[node name="R Label" type="Label" parent="Main VBoxContainer/Controls VBoxContainer/RSliderHBoxContainer"]
+layout_mode = 2
+text = "R"
+
+[node name="RSlider" type="HSlider" parent="Main VBoxContainer/Controls VBoxContainer/RSliderHBoxContainer"]
+custom_minimum_size = Vector2(255, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 255.0
+
+[node name="ResetButton" type="Button" parent="Main VBoxContainer/Controls VBoxContainer/RSliderHBoxContainer"]
+layout_mode = 2
+text = "Reset
+"
+
+[node name="GSliderHBoxContainer" type="HBoxContainer" parent="Main VBoxContainer/Controls VBoxContainer"]
+layout_mode = 2
+
+[node name="G Label" type="Label" parent="Main VBoxContainer/Controls VBoxContainer/GSliderHBoxContainer"]
+layout_mode = 2
+text = "G"
+
+[node name="GSlider" type="HSlider" parent="Main VBoxContainer/Controls VBoxContainer/GSliderHBoxContainer"]
+custom_minimum_size = Vector2(255, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 255.0
+
+[node name="ResetButton" type="Button" parent="Main VBoxContainer/Controls VBoxContainer/GSliderHBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="BSliderHBoxContainer" type="HBoxContainer" parent="Main VBoxContainer/Controls VBoxContainer"]
+layout_mode = 2
+
+[node name="B Label" type="Label" parent="Main VBoxContainer/Controls VBoxContainer/BSliderHBoxContainer"]
+layout_mode = 2
+text = "B"
+
+[node name="BSlider" type="HSlider" parent="Main VBoxContainer/Controls VBoxContainer/BSliderHBoxContainer"]
+custom_minimum_size = Vector2(255, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 255.0
+
+[node name="ResetButton" type="Button" parent="Main VBoxContainer/Controls VBoxContainer/BSliderHBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="Back Button" type="Button" parent="Main VBoxContainer/Controls VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+script = ExtResource("1_67mob")

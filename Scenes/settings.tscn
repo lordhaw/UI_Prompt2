@@ -1,19 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://fksaxmrasiud"]
+[gd_scene load_steps=6 format=3 uid="uid://fksaxmrasiud"]
+
+[ext_resource type="Script" uid="uid://bv7vr3v0u2uln" path="res://Scripts/audio_button.gd" id="1_4geyq"]
+[ext_resource type="Script" uid="uid://dwc6hqh60bl86" path="res://Scripts/chg_colour.gd" id="1_lhmql"]
+[ext_resource type="Script" uid="uid://cvx3eybapxpal" path="res://Scripts/graphics_button.gd" id="2_i44u3"]
 
 [sub_resource type="Theme" id="Theme_eyi13"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4geyq"]
 font_size = 30
 
-[node name="ColorRect" type="ColorRect"]
+[node name="Settings BG ColorRect" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.434047, 0.645756, 0.963294, 1)
+script = ExtResource("1_lhmql")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Main VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,18 +28,28 @@ grow_vertical = 2
 theme = SubResource("Theme_eyi13")
 alignment = 1
 
-[node name="Settings label" type="Label" parent="VBoxContainer"]
+[node name="Settings label" type="Label" parent="Main VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 label_settings = SubResource("LabelSettings_4geyq")
 horizontal_alignment = 1
 
-[node name="Audio Button" type="Button" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="Main VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Audio"
 
-[node name="Graphics Button" type="Button" parent="VBoxContainer"]
+[node name="Button VBoxContainer" type="VBoxContainer" parent="Main VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Audio Button" type="Button" parent="Main VBoxContainer/Button VBoxContainer" groups=["audiobutton"]]
+layout_mode = 2
+text = "Audio"
+script = ExtResource("1_4geyq")
+
+[node name="Graphics Button" type="Button" parent="Main VBoxContainer/Button VBoxContainer" groups=["graphicsbutton"]]
+layout_mode = 2
 text = "Graphics"
+script = ExtResource("2_i44u3")

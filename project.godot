@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Prompt 2"
+run/main_scene="uid://dgh0xx71qo6i0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
 
 [rendering]
 

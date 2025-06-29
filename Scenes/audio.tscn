@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://4b4kcwdm6qh3"]
+
+[ext_resource type="Script" uid="uid://dwc6hqh60bl86" path="res://Scripts/chg_colour.gd" id="1_fqpxi"]
+[ext_resource type="Script" uid="uid://582aqse0jsvi" path="res://Scripts/audio_back_button.gd" id="1_l04ps"]
+[ext_resource type="Script" uid="uid://dmjm68antkrao" path="res://Scripts/volume_slider.gd" id="1_y8l05"]
+[ext_resource type="Script" uid="uid://1vt1o1b5ev04" path="res://Scripts/mute_checkbox.gd" id="2_c8j57"]
+[ext_resource type="Script" uid="uid://qco7ncf63ncl" path="res://Scripts/audio_reset_button.gd" id="2_pess6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7depl"]
+font_size = 30
+
+[node name="AudioBGColorRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.435294, 0.647059, 0.964706, 1)
+script = ExtResource("1_fqpxi")
+
+[node name="Main VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Audio Label" type="Label" parent="Main VBoxContainer"]
+layout_mode = 2
+text = "Audio Settings"
+label_settings = SubResource("LabelSettings_7depl")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Main VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Controls VBoxContainer" type="VBoxContainer" parent="Main VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="SliderHBoxContainer" type="HBoxContainer" parent="Main VBoxContainer/Controls VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="Main VBoxContainer/Controls VBoxContainer/SliderHBoxContainer"]
+custom_minimum_size = Vector2(255, 0)
+layout_mode = 2
+min_value = -80.0
+max_value = 0.0
+script = ExtResource("1_y8l05")
+
+[node name="Reset Button" type="Button" parent="Main VBoxContainer/Controls VBoxContainer/SliderHBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+text = "Reset"
+script = ExtResource("2_pess6")
+
+[node name="MuteHBoxContainer2" type="HBoxContainer" parent="Main VBoxContainer/Controls VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Mute Label" type="Label" parent="Main VBoxContainer/Controls VBoxContainer/MuteHBoxContainer2"]
+layout_mode = 2
+text = "Mute"
+
+[node name="MuteCheckbox" type="CheckBox" parent="Main VBoxContainer/Controls VBoxContainer/MuteHBoxContainer2"]
+layout_mode = 2
+script = ExtResource("2_c8j57")
+
+[node name="Back Button" type="Button" parent="Main VBoxContainer/Controls VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 6.81
+text = "Back"
+script = ExtResource("1_l04ps")
